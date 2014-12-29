@@ -564,6 +564,7 @@ public class Texture {
 		avgColorLinear[1] /= width*height;
 		avgColorLinear[2] /= width*height;
 		avgColorLinear[3] /= width*height;
+		avgColorLinear[3] = 1;
 
 		avgColor = Color.getRGBA(FastMath.pow(avgColorLinear[0], 1/Scene.DEFAULT_GAMMA),
 				FastMath.pow(avgColorLinear[1], 1/Scene.DEFAULT_GAMMA),
@@ -607,7 +608,7 @@ public class Texture {
 	 * @return color
 	 */
 	public final float[] getColor(int x, int y) {
-		return linear[width*y + x];
+		return avgColorLinear;
 	}
 
 	/**
